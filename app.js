@@ -1,4 +1,4 @@
-
+/* ---------- Typing text ---------- */
 const text = "OSINT Specialist • Python Developer";
 const speed = 60;
 let i = 0;
@@ -12,6 +12,7 @@ function typeEffect() {
 }
 typeEffect();
 
+/* ---------- 3D-Tilt карточки ---------- */
 const card = document.getElementById("card");
 
 document.addEventListener("mousemove", (e) => {
@@ -21,6 +22,7 @@ document.addEventListener("mousemove", (e) => {
     card.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
 });
 
+/* ---------- Параллакс движение ---------- */
 document.addEventListener("mousemove", (e) => {
     const x = (e.clientX / window.innerWidth - 0.5) * 30;
     const y = (e.clientY / window.innerHeight - 0.5) * 30;
