@@ -1,131 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap');
 
 body {
     margin: 0;
-    font-family: Consolas, monospace;
+    font-family: 'JetBrains Mono', monospace;
     background: #050505;
+    color: #e6e6e6;
     overflow-x: hidden;
-    color: #d9ffe8;
+    height: 100vh;
 }
 
 .parallax {
     position: fixed;
-    width: 100%;
-    height: 100%;
+    inset: 0;
+    z-index: -10;
     background-size: cover;
     background-position: center;
-    z-index: -5;
-    opacity: 0.25;
-}
-
-.layer1 {
-    background-image: url('https://i.imgur.com/Kt4GxDY.png');
-}
-
-.layer2 {
-    background-image: url('https://i.imgur.com/axU9Q9Z.png');
     opacity: 0.18;
 }
 
+.layer1 {
+    background-image: radial-gradient(circle, rgba(0,255,160,0.1) 0%, transparent 70%);
+    transform: translateZ(-3px) scale(4);
+}
+
+.layer2 {
+    background-image:
+        linear-gradient(90deg, rgba(0,255,160,0.05) 1px, transparent 1px),
+        linear-gradient(rgba(0,255,160,0.05) 1px, transparent 1px);
+    background-size: 45px 45px;
+    animation: gridMove 22s linear infinite;
+    transform: translateZ(-2px) scale(2.6);
+}
+
 .layer3 {
-    background-image: url('https://i.imgur.com/VApB5hW.png');
-    opacity: 0.12;
+    background-image: radial-gradient(circle, rgba(0,255,120,0.05) 0%, transparent 60%);
+    transform: translateZ(-1px) scale(1.8);
+}
+
+@keyframes gridMove {
+    from { transform: translateZ(-2px) scale(2.6) translateY(0); }
+    to { transform: translateZ(-2px) scale(2.6) translateY(-45px); }
 }
 
 .container {
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 100vh;
+    padding: 30px;
 }
 
 .card {
-    background: rgba(10, 10, 10, 0.45);
-    border: 1px solid rgba(0, 255, 160, 0.35);
+    width: 100%;
+    max-width: 650px;
+    padding: 40px;
     border-radius: 20px;
-    padding: 40px 55px;
-    backdrop-filter: blur(14px);
-    box-shadow: 0 0 25px rgba(0,255,120,0.25);
-    text-align: center;
+
+    background: rgba(15, 15, 15, 0.35);
+    border: 1px solid rgba(0, 255, 160, 0.18);
+    backdrop-filter: blur(18px) saturate(160%);
+    box-shadow: 0 0 45px rgba(0, 255, 100, 0.20);
+
     transition: transform 0.2s ease-out;
-    color: #d1ffe9;
+    transform-style: preserve-3d;
 }
 
 .glow {
     color: #0aff9d;
-    font-size: 45px;
-    text-shadow: 0 0 20px #0aff9d;
+    font-size: 46px;
+    margin-bottom: 5px;
+    text-shadow: 0 0 10px rgba(0,255,140,0.8);
+    animation: glowPulse 3s ease-in-out infinite;
 }
 
 .typewriter {
-    font-size: 20px;
-    color: #aaffdd;
-    height: 28px;
-    margin-bottom: 25px;
+    font-size: 18px;
+    margin-top: -5px;
+    color: #7dfcb6;
+    height: 24px;
 }
 
-.skills {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 20px;
+@keyframes glowPulse {
+    0%, 100% { text-shadow: 0 0 10px rgba(0,255,140,0.8); }
+    50% { text-shadow: 0 0 24px rgba(0,255,140,1); }
+}
+
+.bio {
+    margin: 20px 0;
+    line-height: 1.6;
+    opacity: 0.85;
+}
+
+h2 {
+    margin-top: 25px;
+    color: #0aff9d;
+    font-size: 22px;
 }
 
 .skills li {
-    margin: 5px 0;
-    padding: 5px;
-    background: rgba(0,255,120,0.08);
-    border-left: 3px solid #0aff9d;
+    margin-bottom: 6px;
+    transition: 0.2s ease;
+}
+
+.skills li:hover {
+    color: #0aff9d;
+    transform: translateX(4px);
 }
 
 .highlight {
     color: #0aff9d;
-}
-
-.lang-switch {
-    position: fixed;
-    top: 20px;
-    right: 25px;
-    z-index: 200;
-}
-
-#lang-btn {
-    background: rgba(0, 255, 160, 0.25);
-    border: 1px solid rgba(0, 255, 160, 0.4);
-    color: #0aff9d;
-    padding: 10px 14px;
-    font-size: 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    backdrop-filter: blur(8px);
+    font-weight: 500;
     transition: 0.2s;
 }
 
-#lang-btn:hover {
-    background: rgba(0, 255, 160, 0.45);
-}
-
-.lang-menu {
-    position: absolute;
-    right: 0;
-    top: 50px;
-    background: rgba(15, 15, 15, 0.7);
-    border: 1px solid rgba(0, 255, 160, 0.35);
-    backdrop-filter: blur(10px);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0,255,120,0.25);
-}
-
-.lang-menu div {
-    padding: 10px 20px;
-    cursor: pointer;
-    color: #0aff9d;
-    transition: 0.2s;
-}
-
-.lang-menu div:hover {
-    background: rgba(0,255,160,0.15);
-}
-
-.hidden {
-    display: none;
+.highlight:hover {
+    text-shadow: 0 0 10px rgba(0,255,160,0.8);
 }
