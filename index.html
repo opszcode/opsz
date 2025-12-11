@@ -8,39 +8,37 @@
 </head>
 <body>
 
-
+<!-- Параллакс -->
 <div class="parallax layer1"></div>
 <div class="parallax layer2"></div>
 <div class="parallax layer3"></div>
+
+<!-- Переключатель языка -->
+<div class="lang-switch">
+    <button id="lang-btn">🌐</button>
+    <div id="lang-menu" class="lang-menu hidden">
+        <div data-lang="ru">RU</div>
+        <div data-lang="en">ENG</div>
+    </div>
+</div>
 
 <div class="container">
     <div class="card" id="card">
         <h1 class="glow">Opsz</h1>
 
-        
         <p class="typewriter" id="typing"></p>
 
-        <p class="bio">
-            Cybersecurity researcher focusing on malware behavior,
-            data-exfiltration techniques, and analysis of offensive tools for
-            educational and defensive purposes.
-        </p>
+        <p class="bio" data-text="bio"></p>
 
-        <h2>Skills</h2>
-        <ul class="skills">
-            <li>OSINT Software</li>
-            <li>Python Development</li>
-            <li>Security Research</li>
-            <li>Pentest Utilities</li>
-        </ul>
+        <h2 data-text="skills_title"></h2>
+        <ul class="skills" id="skills-list"></ul>
 
-        <h2>Contacts</h2>
-        <p>Discord: <span class="highlight">t2sim</span></p>
-        <p>Email: <span class="highlight">cab02a7@push.tg</span></p>
+        <h2 data-text="contacts_title"></h2>
+        <p><span data-text="discord"></span>: <span class="highlight">t2sim</span></p>
+        <p><span data-text="email"></span>: <span class="highlight">cab02a7@push.tg</span></p>
     </div>
 </div>
 
 <script src="app.js"></script>
 </body>
 </html>
-
