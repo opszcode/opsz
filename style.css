@@ -9,6 +9,7 @@ body {
     height: 100vh;
 }
 
+/* Параллакс-слои */
 .parallax {
     position: fixed;
     inset: 0;
@@ -50,6 +51,7 @@ body {
     padding: 30px;
 }
 
+/* Стеклянная 3D-карточка */
 .card {
     width: 100%;
     max-width: 650px;
@@ -73,6 +75,7 @@ body {
     animation: glowPulse 3s ease-in-out infinite;
 }
 
+/* typing text */
 .typewriter {
     font-size: 18px;
     margin-top: -5px;
