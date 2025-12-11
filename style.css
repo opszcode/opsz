@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'JetBrains Mono', monospace;
+    background: #050505;
+    color: #e6e6e6;
+    overflow-x: hidden;
+    height: 100vh;
+}
+
+/* Параллакс-слои */
+.parallax {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.18;
+}
+
+.layer1 {
+    background-image: radial-gradient(circle, rgba(0,255,160,0.1) 0%, transparent 70%);
+    transform: translateZ(-3px) scale(4);
+}
+
+.layer2 {
+    background-image:
+        linear-gradient(90deg, rgba(0,255,160,0.05) 1px, transparent 1px),
+        linear-gradient(rgba(0,255,160,0.05) 1px, transparent 1px);
+    background-size: 45px 45px;
+    animation: gridMove 22s linear infinite;
+    transform: translateZ(-2px) scale(2.6);
+}
+
+.layer3 {
+    background-image: radial-gradient(circle, rgba(0,255,120,0.05) 0%, transparent 60%);
+    transform: translateZ(-1px) scale(1.8);
+}
+
+@keyframes gridMove {
+    from { transform: translateZ(-2px) scale(2.6) translateY(0); }
+    to { transform: translateZ(-2px) scale(2.6) translateY(-45px); }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 30px;
+}
+
+/* Стеклянная 3D-карточка */
+.card {
+    width: 100%;
+    max-width: 650px;
+    padding: 40px;
+    border-radius: 20px;
+
+    background: rgba(15, 15, 15, 0.35);
+    border: 1px solid rgba(0, 255, 160, 0.18);
+    backdrop-filter: blur(18px) saturate(160%);
+    box-shadow: 0 0 45px rgba(0, 255, 100, 0.20);
+
+    transition: transform 0.2s ease-out;
+    transform-style: preserve-3d;
+}
+
+.glow {
+    color: #0aff9d;
+    font-size: 46px;
+    margin-bottom: 5px;
+    text-shadow: 0 0 10px rgba(0,255,140,0.8);
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* typing text */
+.typewriter {
+    font-size: 18px;
+    margin-top: -5px;
+    color: #7dfcb6;
+    height: 24px;
+}
+
+@keyframes glowPulse {
+    0%, 100% { text-shadow: 0 0 10px rgba(0,255,140,0.8); }
+    50% { text-shadow: 0 0 24px rgba(0,255,140,1); }
+}
+
+.bio {
+    margin: 20px 0;
+    line-height: 1.6;
+    opacity: 0.85;
+}
+
+h2 {
+    margin-top: 25px;
+    color: #0aff9d;
+    font-size: 22px;
+}
+
+.skills li {
+    margin-bottom: 6px;
+    transition: 0.2s ease;
+}
+
+.skills li:hover {
+    color: #0aff9d;
+    transform: translateX(4px);
+}
+
+.highlight {
+    color: #0aff9d;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.highlight:hover {
+    text-shadow: 0 0 10px rgba(0,255,160,0.8);
+}
