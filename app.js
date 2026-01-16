@@ -18,7 +18,6 @@ const card = document.getElementById("card");
 document.addEventListener("mousemove", (e) => {
     const x = (window.innerWidth / 2 - e.clientX) / 25;
     const y = (window.innerHeight / 2 - e.clientY) / 25;
-
     card.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
 });
 
@@ -33,3 +32,14 @@ document.addEventListener("mousemove", (e) => {
     });
 });
 
+/* ---------- MODAL ---------- */
+const modal = document.getElementById("tools-modal");
+const openBtn = document.getElementById("tools-btn");
+const closeBtn = document.getElementById("close-modal");
+
+openBtn.onclick = () => modal.classList.remove("hidden");
+closeBtn.onclick = () => modal.classList.add("hidden");
+
+modal.onclick = (e) => {
+    if (e.target === modal) modal.classList.add("hidden");
+};
