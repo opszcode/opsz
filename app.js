@@ -1,28 +1,26 @@
-/* ---------- Typing text ---------- */
+/* ---------- Typing ---------- */
 const text = "OSINT Specialist • Python Developer";
-const speed = 60;
 let i = 0;
 
 function typeEffect() {
     if (i < text.length) {
-        document.getElementById("typing").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeEffect, speed);
+        document.getElementById("typing").innerHTML += text.charAt(i++);
+        setTimeout(typeEffect, 60);
     }
 }
 typeEffect();
 
-/* ---------- 3D-Tilt карточки ---------- */
+/* ---------- 3D Card ---------- */
 const card = document.getElementById("card");
 
-document.addEventListener("mousemove", (e) => {
+document.addEventListener("mousemove", e => {
     const x = (window.innerWidth / 2 - e.clientX) / 25;
     const y = (window.innerHeight / 2 - e.clientY) / 25;
     card.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
 });
 
-/* ---------- Параллакс движение ---------- */
-document.addEventListener("mousemove", (e) => {
+/* ---------- Parallax ---------- */
+document.addEventListener("mousemove", e => {
     const x = (e.clientX / window.innerWidth - 0.5) * 30;
     const y = (e.clientY / window.innerHeight - 0.5) * 30;
 
@@ -32,14 +30,19 @@ document.addEventListener("mousemove", (e) => {
     });
 });
 
-/* ---------- MODAL ---------- */
-const modal = document.getElementById("tools-modal");
-const openBtn = document.getElementById("tools-btn");
-const closeBtn = document.getElementById("close-modal");
+/* ---------- Modals ---------- */
+function bindModal(btnId, modalId) {
+    const btn = document.getElementById(btnId);
+    const modal = document.getElementById(modalId);
+    const close = modal.querySelector(".modal-close");
 
-openBtn.onclick = () => modal.classList.remove("hidden");
-closeBtn.onclick = () => modal.classList.add("hidden");
+    btn.onclick = () => modal.classList.add("show");
+    close.onclick = () => modal.classList.remove("show");
 
-modal.onclick = (e) => {
-    if (e.target === modal) modal.classList.add("hidden");
-};
+    modal.onclick = e => {
+        if (e.target === modal) modal.classList.remove("show");
+    };
+}
+
+bindModal("bombers-btn", "bombers-modal");
+bindModal("tutorials-btn", "tutorials-modal");
