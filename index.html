@@ -13,13 +13,18 @@
 <div class="parallax layer2"></div>
 <div class="parallax layer3"></div>
 
-<!-- КНОПКА FREE SMS BOMBER -->
-<div class="tools-switch">
-    <button id="tools-btn">FREE SMS BOMBER</button>
+<!-- КНОПКА TUTORIALS -->
+<div class="tools-switch left">
+    <button id="tutorials-btn">TUTORIALS</button>
 </div>
 
-<!-- МОДАЛЬНОЕ ОКНО -->
-<div id="tools-modal" class="modal hidden">
+<!-- КНОПКА FREE SMS BOMBER -->
+<div class="tools-switch right">
+    <button id="bombers-btn">FREE SMS BOMBER</button>
+</div>
+
+<!-- МОДАЛКА BOMBER -->
+<div id="bombers-modal" class="modal">
     <div class="modal-card">
         <h2>FREE SMS BOMBER</h2>
 
@@ -33,7 +38,26 @@
             WhoBomb
         </button>
 
-        <button class="modal-close" id="close-modal">Close</button>
+        <button class="modal-close">Close</button>
+    </div>
+</div>
+
+<!-- МОДАЛКА TUTORIALS -->
+<div id="tutorials-modal" class="modal">
+    <div class="modal-card">
+        <h2>TUTORIALS</h2>
+
+        <button class="modal-btn"
+            onclick="window.open('https://telegra.ph/Manual-po-OSINT-Telegram-Discord-poisk-po-nomeru-telefona-01-12', '_blank')">
+            OSINT
+        </button>
+
+        <button class="modal-btn"
+            onclick="window.open('https://telegra.ph/Manual-po-snosu-sessij-v-Telegram-01-12', '_blank')">
+            TG Acc Auto Deletion
+        </button>
+
+        <button class="modal-close">Close</button>
     </div>
 </div>
 
@@ -41,7 +65,6 @@
     <div class="card" id="card">
         <h1 class="glow">Opsz</h1>
 
-        <!-- typing effect -->
         <p class="typewriter" id="typing"></p>
 
         <p class="bio">
