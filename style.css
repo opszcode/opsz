@@ -9,7 +9,7 @@ body {
     height: 100vh;
 }
 
-/* Параллакс-слои */
+/* ===== PARALLAX ===== */
 .parallax {
     position: fixed;
     inset: 0;
@@ -51,7 +51,7 @@ body {
     padding: 30px;
 }
 
-/* Стеклянная 3D-карточка */
+/* ===== CARD ===== */
 .card {
     width: 100%;
     max-width: 650px;
@@ -73,16 +73,16 @@ body {
     animation: glowPulse 3s ease-in-out infinite;
 }
 
+@keyframes glowPulse {
+    0%, 100% { text-shadow: 0 0 10px rgba(0,255,140,0.8); }
+    50% { text-shadow: 0 0 24px rgba(0,255,140,1); }
+}
+
 .typewriter {
     font-size: 18px;
     margin-top: -5px;
     color: #7dfcb6;
     height: 24px;
-}
-
-@keyframes glowPulse {
-    0%, 100% { text-shadow: 0 0 10px rgba(0,255,140,0.8); }
-    50% { text-shadow: 0 0 24px rgba(0,255,140,1); }
 }
 
 .bio {
@@ -112,15 +112,17 @@ h2 {
     font-weight: 500;
 }
 
-/* ===== FREE SMS BOMBER BUTTON ===== */
+/* ===== BUTTONS ===== */
 .tools-switch {
     position: fixed;
     top: 20px;
-    right: 20px;
     z-index: 100;
 }
 
-#tools-btn {
+.tools-switch.right { right: 20px; }
+.tools-switch.left { left: 20px; }
+
+.tools-switch button {
     background: rgba(15, 15, 15, 0.45);
     border: 1px solid rgba(0,255,160,0.35);
     color: #0aff9d;
@@ -132,7 +134,7 @@ h2 {
     transition: 0.2s;
 }
 
-#tools-btn:hover {
+.tools-switch button:hover {
     box-shadow: 0 0 28px rgba(0,255,140,0.55);
 }
 
@@ -145,6 +147,14 @@ h2 {
     justify-content: center;
     align-items: center;
     z-index: 200;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.modal.show {
+    opacity: 1;
+    pointer-events: all;
 }
 
 .modal-card {
@@ -155,6 +165,16 @@ h2 {
     padding: 35px 45px;
     text-align: center;
     box-shadow: 0 0 45px rgba(0,255,120,0.35);
+    transform: scale(0.85);
+    opacity: 0;
+    animation: modalIn 0.3s ease forwards;
+}
+
+@keyframes modalIn {
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .modal-btn {
@@ -180,8 +200,4 @@ h2 {
     border: none;
     color: #7dfcb6;
     cursor: pointer;
-}
-
-.hidden {
-    display: none;
 }
